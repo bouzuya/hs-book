@@ -94,4 +94,14 @@ ghci> (+) ((doubleUs 28) 88) (doubleMe 123)
 478
 ghci> (+) (doubleUs 28 88) (doubleMe 123)
 478
+ghci> doubleSmallNumber 10
+20
+ghci> doubleSmallNumber 101
+101
+ghci> doubleSmallNumber' 10
+21
+ghci> doubleSmallNumber' 101
+102
+ghci> conanO'Brien
+"It's a-me, Conan O'Brien!"
 ```
