@@ -351,3 +351,61 @@ ghci> let xxs = [[1,3,5,2,3,1,2,4,5],[1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,
 ghci> [[x | x <- xs, even x] | xs <- xxs]
 [[2,2,4],[2,4,6,8],[2,4,2,6,2,6]]
 ```
+
+1.6
+
+```
+ghci> (1, 6)
+(1,6)
+ghci> :t (1, 6)
+(1, 6) :: (Num t, Num t1) => (t, t1)
+ghci> (1, 3)
+(1,3)
+ghci> (3, 'a', "hello")
+(3,'a',"hello")
+ghci> :t (3, 'a', "hello")
+(3, 'a', "hello") :: Num t => (t, Char, [Char])
+ghci> :t (3 :: Int, 'a', "hello")
+(3 :: Int, 'a', "hello") :: (Int, Char, [Char])
+ghci> (50, 50.4, "hello", 'b')
+(50,50.4,"hello",'b')
+ghci> [(1,2),(8,11,5),(4,5)]
+
+<interactive>:132:8:
+    Couldn't match expected type ‘(t, t1)’
+                with actual type ‘(Integer, Integer, Integer)’
+    Relevant bindings include
+      it :: [(t, t1)] (bound at <interactive>:132:1)
+    In the expression: (8, 11, 5)
+    In the expression: [(1, 2), (8, 11, 5), (4, 5)]
+    In an equation for ‘it’: it = [(1, 2), (8, 11, 5), (4, 5)]
+ghci> [(1,2),(8,11),(4,5)]
+[(1,2),(8,11),(4,5)]
+ghci> :t [(1,2),(8,11),(4,5)]
+[(1,2),(8,11),(4,5)] :: (Num t, Num t1) => [(t, t1)]
+ghci> fst (8, 11)
+8
+ghci> snd (8, 11)
+11
+ghci> fst ("Wow", False)
+"Wow"
+ghci> snd ("Wow", False)
+False
+ghci> zip [1,2,3,4,5] [5,5,5,5,5]
+[(1,5),(2,5),(3,5),(4,5),(5,5)]
+ghci> zip [1..5] ["one","two","three","four","five"]
+[(1,"one"),(2,"two"),(3,"three"),(4,"four"),(5,"five")]
+ghci> zip [5,3,2,6,2,7,2,5,4,6,6] ["im","a","turtle"]
+[(5,"im"),(3,"a"),(2,"turtle")]
+ghci> zip [1..] ["apple","orange","cherry","mango"]
+[(1,"apple"),(2,"orange"),(3,"cherry"),(4,"mango")]
+ghci> let triples = [(a,b,c) | c <- [1..10], a <- [1..10], b <- [1..10]]
+ghci> take 3 triples
+[(1,1,1),(1,2,1),(1,3,1)]
+ghci> let rightTriples = [(a,b,c) | c <- [1..10], a <- [1..c], b <- [1..a], a ^ 2 + b ^ 2 == c ^ 2]
+ghci> take 3 rightTriples
+[(4,3,5),(8,6,10)]
+ghci> let rightTriples' = [(a,b,c) | c <- [1..10], a <- [1..c], b <- [1..a], a ^ 2 + b ^ 2 == c ^ 2, a + b + c == 24]
+ghci> rightTriples'
+[(8,6,10)]
+```
