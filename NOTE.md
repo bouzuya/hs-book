@@ -80,5 +80,18 @@ ghci> doubleUs 2.3 34.2
 73.0
 ghci> doubleUs 28 88 + doubleMe 123
 478
-ghci>
+ghci> (doubleUs 28 88) + (doubleMe 123)
+478
+ghci> (doubleUs 28) 88 + (doubleMe 123)
+478
+ghci> (+) (doubleUs 28) 88 (doubleMe 123)
+<interactive>:9:1:
+    Non type-variable argument in the constraint: Num (a -> a)
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall a. (Num a, Num (a -> a)) => a
+ghci> (+) ((doubleUs 28) 88) (doubleMe 123)
+478
+ghci> (+) (doubleUs 28 88) (doubleMe 123)
+478
 ```
