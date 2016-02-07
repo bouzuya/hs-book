@@ -45,5 +45,6 @@ ghci> tell []
 "The list is empty"
 ghci> badAdd [1,2]
 *** Exception: chapter-3-1-2.hs:12:1-29: Non-exhaustive patterns in function badAdd
-
+ghci> firstLetter "Dracula"
+"The first letter of Dracula is D"
 ```
