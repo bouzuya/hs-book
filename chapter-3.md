@@ -47,4 +47,10 @@ ghci> badAdd [1,2]
 *** Exception: chapter-3-1-2.hs:12:1-29: Non-exhaustive patterns in function badAdd
 ghci> firstLetter "Dracula"
 "The first letter of Dracula is D"
+ghci> bmiTell 85 1.90
+"You're supposedly normal. Pffft, I bet you're ugly!"
+ghci> 3 `myCompare` 2
+GT
+ghci> max 3 2
+3
 ```
