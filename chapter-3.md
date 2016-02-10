@@ -53,4 +53,14 @@ ghci> 3 `myCompare` 2
 GT
 ghci> max 3 2
 3
+ghci> let zoot x y z = x * y + z
+ghci> zoot 3 9 2
+29
+ghci> let boot x y z = x * y + z in boot 3 4 2
+14
+ghci> boot
+
+<interactive>:18:1:
+    Not in scope: ‘boot’
+    Perhaps you meant ‘zoot’ (line 15)
 ```
